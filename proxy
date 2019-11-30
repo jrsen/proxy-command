@@ -1,0 +1,9 @@
+#!/bin/bash
+conf_file=/etc/command_proxy.conf
+if [ ! -t 0 ]; then
+	proxy_command=$(cat -)
+	sudo tee "$conf_file" <<< "$proxy_command"
+elif [ -f "$conf_file" ]; then
+	proxy_command=$(cat "$conf_file")
+	eval "$proxy_command" $@
+fi
