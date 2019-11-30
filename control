@@ -2,6 +2,8 @@ Package: command-proxy
 Version: 1.0
 Maintainer: kaisar <jiankaizhu.jrsen@gmail.com>
 Section: shells
+Source: https://github.com/jrsen/proxy-command
+Homepage: https://github.com/jrsen/proxy-command
 Architecture: all
 Priority: optional
 Description: proxy for command
