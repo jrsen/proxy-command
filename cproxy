@@ -1,0 +1,31 @@
+#!/bin/bash
+
+#
+# A proxy command.
+# 
+# Used to set http proxy for command line program.
+#
+
+CONF_PATH=/etc/cproxy.conf
+
+function usage()
+{
+	echo """
+Usage: cproxy command args
+"""
+}
+
+while (( "$#" )); do
+	case "$1" in
+	-h|--help)
+		usage
+		exit
+		;;
+	*)
+		break
+		;;
+	esac
+done
+
+source ${CONF_PATH}
+http_proxy=${http_proxy} https_proxy=${https_proxy} $@
