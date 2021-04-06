@@ -1,9 +1,9 @@
 all: 
 
 install:
-	cp cproxy /usr/bin/cproxy
-	cp cproxy.conf /etc/cproxy.conf
+	cp -f cproxy /usr/bin/cproxy
+	cp -f cproxy.conf /etc/cproxy.conf
 
 uninstall:
-	rm /usr/bin/cproxy
-	rm /etc/cproxy.conf
+	rm -f /usr/bin/cproxy
+	rm -f /etc/cproxy.conf
