@@ -9,7 +9,7 @@ $ cproxy curl http://ipinfo.io
 ## 配置:
 - 安装
     ```
-    $ git clone git@github.com:kaisar945/cproxy.git ~/cproxy
+    $ git clone https://github.com/kaisar945/cproxy.git ~/cproxy
     $ cd ~/cproxy
     $ sudo make install
     ```
