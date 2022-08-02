@@ -1,5 +1,5 @@
 # cproxy
-A tool for setting the command line http proxy in the terminal
+A tool for setting the command line proxy in the terminal
 
 ## Example:
 ```
@@ -18,8 +18,9 @@ $ cproxy curl http://ipinfo.io
     Open the configuration file with a text editor ```/etc/cproxy.conf```
     ```
     # Example
-    http_proxy=http://127.0.0.1:8888
-    https_proxy=http://127.0.0.1:8888
+    http_proxy=http://127.0.0.1:1080
+    https_proxy=http://127.0.0.1:1080
+    all_proxy=socks5://127.0.0.1:1080
     ```
 
 - Uninstall
@@ -29,15 +30,8 @@ $ cproxy curl http://ipinfo.io
     ```
 
 ## Q&A:
-1. Whether to support socks v4/v5 proxy
 
-    Because the terminal's default ```http_proxy``` ```https_proxy``` environment variable is used to implement the command line proxy function, so the ```socks``` proxy is not currently supported
-
-3. Not working
-
-    The application may bypass the proxy, it is recommended to try to use ```proxychain``` to force the proxy
-
-4. Cannot be used with command line auto-completion
+1. Cannot be used with command line auto-completion
 
     Is there a particularly good way for the time being, you can enter the original command line first, then jump to the head and enter ```cproxy``` to use, support sub-command automatic completion is in development plan
 

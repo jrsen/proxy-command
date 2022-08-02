@@ -1,12 +1,6 @@
 #!/bin/bash
 
-#
-# A proxy command.
-# 
-# Used to set http proxy for command line program.
-#
-
-CONF_PATH=/etc/cproxy.conf
+# Proxy tool for terminal commands.
 
 function usage()
 {
@@ -27,5 +21,21 @@ while (( "$#" )); do
 	esac
 done
 
-source ${CONF_PATH}
-http_proxy=${http_proxy} https_proxy=${https_proxy} $@
+if [ ! -f "/etc/cproxy.conf" ]; then
+	echo "proxy configuration file is missing."
+	usage
+	exit
+fi
+
+. /etc/cproxy.conf
+
+if [ ! -z ${http_proxy} ]; then
+	export http_proxy=${http_proxy}
+fi
+if [ ! -z ${https_proxy} ]; then
+	export https_proxy=${https_proxy}
+fi
+if [ ! -z ${all_proxy} ]; then
+	export all_proxy=${all_proxy}
+fi
+("${@}")
